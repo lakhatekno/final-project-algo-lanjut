@@ -28,11 +28,20 @@ string replaceSpasi(string a){
 	return a;
 }
 
+string replaceGaris(string a){
+    for(int i=0; a[i];i++){
+		if(a[i]=='_'){
+			a[i]=' ';
+		}
+	}
+	return a;
+}
+
 void dataFileCheck(fstream &data);
 char menu();
 
 void inputData();
-
+void outputData();
 // void editData();
 // void deleteData();
 // void searchData();
@@ -51,7 +60,8 @@ main(){
 			case '1' : 
 				inputData();
 				break;
-			case '2' : cout << "Menampilkan Data";
+			case '2' : 
+				outputData();
 			break;
 			case '3' : cout << "Ubah Data";
 			break;
@@ -115,14 +125,18 @@ void inputData(){
 	cout << "Kepala Keluarga\t: ";
 	getline(cin, data_penduduk.nama_kepala);
 
-	char temp1[128];
-    strcpy(temp1, replaceSpasi(data_penduduk.nama_kepala).c_str());
+	// char temp1[128];
+    // strcpy(temp1, replaceSpasi(data_penduduk.nama_kepala).c_str());
+
+	data_penduduk.nama_kepala = replaceSpasi(data_penduduk.nama_kepala);
 
 	cout << "\tAlamat\t: ";
 	getline(cin, data_penduduk.alamat);
 
-	char temp2[128];
-    strcpy(temp2, replaceSpasi(data_penduduk.alamat).c_str());
+	// char temp2[128];
+    // strcpy(temp2, replaceSpasi(data_penduduk.alamat).c_str());
+
+	data_penduduk.alamat = replaceSpasi(data_penduduk.alamat);
 
 	cout << "\tRT\t: ";
 	cin >> data_penduduk.rtrw.rt;
@@ -134,7 +148,7 @@ void inputData(){
     ofstream data;
 	data.open("data.txt", ios::app);
 		data << data_penduduk.no_kk
-			<< " " << temp1 << " "<< temp2 << " "
+			<< " " << data_penduduk.nama_kepala << " "<< data_penduduk.alamat << " "
 			<< data_penduduk.rtrw.rt << " " << data_penduduk.rtrw.rw
 			<< " " << data_penduduk.jml_anggota << endl;
 	data.close();
@@ -142,4 +156,33 @@ void inputData(){
 	cout << "\n\nInput data selesai!";
 }
 
+void outputData(){
+	cout << "=====Menampilkan Data=====\n";
+	ifstream data;
+	data.open("data.txt");
+	
+	while(!data.eof()) {
 
+		
+
+	data >> data_penduduk.no_kk
+			>> data_penduduk.nama_kepala >> data_penduduk.alamat
+			>> data_penduduk.rtrw.rt >> data_penduduk.rtrw.rw
+			>> data_penduduk.jml_anggota;
+    	
+	if(data_penduduk.no_kk==' '){
+		break;
+	}
+
+	cout << "Nomor KK\t: " << data_penduduk.no_kk << endl;
+	cout << "Kepala Keluarga\t: " << replaceGaris(data_penduduk.nama_kepala) << endl;
+	cout << "Anggota Keluarga\t: " << data_penduduk.jml_anggota << endl;
+	cout << "\tAlamat\t: " << replaceGaris(data_penduduk.alamat) << " " 
+		<< "RT" << data_penduduk.rtrw.rt << "/" 
+		<< "RW" << data_penduduk.rtrw.rw <<endl;
+
+	cout << "=======================================\n\n";
+
+	}
+	data.close();
+}
