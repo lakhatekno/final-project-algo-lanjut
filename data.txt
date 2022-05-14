@@ -1,6 +1,10 @@
-177013 sarwo_enggal bulu_kidul 3 2 5
-332333 lakha_eee roken_permai 2 5 2
-123321 syafik_hidayat krtosari_magelang 3 2 3
-999000 heru_gunadi sayegan_lor 5 2 5
-222333 hendro_wicaksono sanggrahan_wetan 1 3 4
-454647 bambang_tejo temanggung_ii 22 13 2
+177013 sarwo_enggal bulu_kidul 3 2 5 085612341233
+332333 lakha_eee roken_permai 2 5 2 085612341234
+123321 syafik_hidayat krtosari_magelang 3 2 3 085612341235
+999000 heru_gunadi sayegan_lor 5 2 5 085612341233
+222333 hendro_wicaksono sanggrahan_wetan 1 3 4 085612341236
+454647 bambang_tejo temanggung_ii 22 13 2 085612341237
+369246 cecep_sutrisno jampiroso_barat 12 2 3 085612341238
+123789 peter_griffin asd_fhgh 3 2 5 085612341239
+555444 re_jih yuuu_er 45 12 3 088899999
+234654 ert_tyu fgh_nbv 3 6 4 0899345
